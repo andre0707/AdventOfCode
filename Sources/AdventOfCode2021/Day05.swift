@@ -14,7 +14,7 @@ struct Day5 {
         
         init(with mapLines: [Line], allowDiagonalLines: Bool) {
             for mapLine in mapLines {
-                /// Exttend map to fit lines
+                /// Extend map to fit lines
                 let maxX = max(mapLine.from.x, mapLine.to.x)
                 let maxY = max(mapLine.from.y, mapLine.to.y)
                 

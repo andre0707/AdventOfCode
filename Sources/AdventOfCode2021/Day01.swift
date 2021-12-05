@@ -36,7 +36,14 @@ struct Day1 {
             print("Increased: \(countIncreased)\n")
         }
         
+        
+        // MARK: - Task 1
+        
         calculateSum(for: 1)
+        
+        
+        // MARK: - Task 2
+        
         calculateSum(for: 3)
     }
 }

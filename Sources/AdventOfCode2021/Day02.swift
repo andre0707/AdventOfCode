@@ -13,7 +13,8 @@ struct Day2 {
         guard directions.count > 0 else { return }
         
         
-        // MARK: - Task1
+        // MARK: - Task 1
+        
         var horizontalPosition = 0
         var depth = 0
         
@@ -33,7 +34,7 @@ struct Day2 {
         print("Result of horizontal (\(horizontalPosition)) * depth (\(depth)) = \(horizontalPosition * depth)")
         
         
-        // MARK: - Task2
+        // MARK: - Task 2
         
         horizontalPosition = 0
         depth = 0
