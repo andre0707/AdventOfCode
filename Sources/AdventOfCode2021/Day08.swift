@@ -13,7 +13,7 @@ struct Day8 {
         case a, b, c, d, e, f, g
         
         static let number0: Set<Segment> = [.a, .b, .c, .e, .f, .g]
-        static let number1: Set<Segment> = [.c, .f,]
+        static let number1: Set<Segment> = [.c, .f]
         static let number2: Set<Segment> = [.a, .c, .d, .e, .g]
         static let number3: Set<Segment> = [.a, .c, .d, .f, .g]
         static let number4: Set<Segment> = [.b, .c, .d, .f,]
