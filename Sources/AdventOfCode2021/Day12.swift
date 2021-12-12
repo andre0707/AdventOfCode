@@ -12,14 +12,19 @@ struct Day12 {
         
         let id: String
         let isSmallCave: Bool
-         
+        
+        static var canVisitOneSmalLCaveSecontTime = false
+        static var didVisitOneSmallCaveSecondTime: [Bool] = []
+        
         static var visitedIds: [Set<String>] = []
         var wasVisited: Bool {
             get {
+                if id == "start" { return true }
                 if !isSmallCave { return false }
                 if Cave.visitedIds.isEmpty {
                     return false
                 } else {
+                    if Cave.canVisitOneSmalLCaveSecontTime && !Cave.didVisitOneSmallCaveSecondTime[Cave.didVisitOneSmallCaveSecondTime.count - 1] { return false }
                     return Cave.visitedIds[Cave.visitedIds.count - 1].contains(self.id)
                 }
             }
@@ -28,6 +33,9 @@ struct Day12 {
                 if Cave.visitedIds.isEmpty {
                     Cave.visitedIds = [Set([self.id])]
                 } else {
+                    if Cave.canVisitOneSmalLCaveSecontTime && Cave.visitedIds[Cave.visitedIds.count - 1].contains(self.id) {
+                        Cave.didVisitOneSmallCaveSecondTime[Cave.didVisitOneSmallCaveSecondTime.count - 1] = true
+                    }
                     Cave.visitedIds[Cave.visitedIds.count - 1].insert(self.id)
                 }
             }
@@ -82,7 +90,6 @@ struct Day12 {
         
         
         var validPathCounter = 0
-        
         func walkPath(from cave: Cave) {
             if cave.id == "end" {
                 validPathCounter += 1
@@ -94,8 +101,10 @@ struct Day12 {
                 if possibleNextCave.wasVisited { continue }
                 
                 Cave.visitedIds.append(Cave.visitedIds.last!)
+                Cave.didVisitOneSmallCaveSecondTime.append(Cave.didVisitOneSmallCaveSecondTime.last!)
                 walkPath(from: possibleNextCave)
                 Cave.visitedIds.removeLast()
+                Cave.didVisitOneSmallCaveSecondTime.removeLast()
             }
             
             return
@@ -104,19 +113,30 @@ struct Day12 {
         guard caves.contains(where: { $0.id == "end" }) else { return }
         guard let startCave = caves.first(where: { $0.id == "start" }) else { return }
         startCave.wasVisited = true
+        Cave.didVisitOneSmallCaveSecondTime = [false]
         
-        for cave in startCave.connectedCaves {
-            Cave.visitedIds.append(Cave.visitedIds.last!)
-            walkPath(from: cave)
-            Cave.visitedIds.removeLast()
+        func start() {
+            for cave in startCave.connectedCaves {
+                Cave.visitedIds.append(Cave.visitedIds.last!)
+                Cave.didVisitOneSmallCaveSecondTime.append(Cave.didVisitOneSmallCaveSecondTime.last!)
+                walkPath(from: cave)
+                Cave.visitedIds.removeLast()
+                Cave.didVisitOneSmallCaveSecondTime.removeLast()
+            }
         }
         
         
         // MARK: - Task 1
         
+        start()
         print("There are \(validPathCounter) path.")
         
         
         // MARK: - Task 2
+        
+        validPathCounter = 0
+        Cave.canVisitOneSmalLCaveSecontTime = true
+        start()
+        print("There are \(validPathCounter) path.")
     }
 }
