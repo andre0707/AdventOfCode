@@ -27,11 +27,11 @@ extension Character {
 struct Day16 {
     
     struct Packet {
-        var version: Int = 0
-        var typeId: Int = 0
+        private var _version: Int = 0
+        private var _typeId: Int = 0
         
-        var literalValue: Int? = nil
-        var subPackets: [Packet] = []
+        private var literalValue: Int? = nil
+        private var subPackets: [Packet] = []
         
         
         static func createPacket(from string: Substring) -> (Packet, String.Index) {
@@ -39,13 +39,13 @@ struct Day16 {
             
             var startIndex = string.startIndex
             var endIndex = string.index(string.startIndex, offsetBy: 3)
-            packet.version = Int(string[startIndex ..< endIndex], radix: 2)!
+            packet._version = Int(string[startIndex ..< endIndex], radix: 2)!
             startIndex = endIndex
             endIndex = string.index(startIndex, offsetBy: 3)
-            packet.typeId = Int(string[startIndex ..< endIndex], radix: 2)!
+            packet._typeId = Int(string[startIndex ..< endIndex], radix: 2)!
             
             
-            switch packet.typeId {
+            switch packet._typeId {
             case 4:
                 /// packet is a literal value
                 
@@ -60,7 +60,7 @@ struct Day16 {
                 return (packet, endIndex)
                 
             default:
-                /// packet is a operator
+                /// packet is an operator
                 
                 startIndex = endIndex
                 endIndex = string.index(startIndex, offsetBy: 1)
@@ -110,37 +110,37 @@ struct Day16 {
             }
         }
         
-        func getVersion() -> Int {
-            version + subPackets.reduce(into: 0) { result, nextPacket in
-                result += nextPacket.getVersion()
+        var version: Int {
+            _version + subPackets.reduce(into: 0) { result, nextPacket in
+                result += nextPacket.version
             }
         }
         
-        func getValue() -> Int {
-            switch typeId {
+        var value: Int {
+            switch _typeId {
             case 0:
                 return subPackets.reduce(into: 0) { result, nextPacket in
-                    result += nextPacket.getValue()
+                    result += nextPacket.value
                 }
             case 1:
                 return subPackets.reduce(into: 1) { result, nextPacket in
-                    result *= nextPacket.getValue()
+                    result *= nextPacket.value
                 }
             case 2:
-                return subPackets.map { $0.getValue() }.min()!
+                return subPackets.map { $0.value }.min()!
             case 3:
-                return subPackets.map { $0.getValue() }.max()!
+                return subPackets.map { $0.value }.max()!
             case 4:
                 return literalValue!
             case 5:
                 guard subPackets.count == 2 else { return 0 }
-                return subPackets[0].getValue() > subPackets[1].getValue() ? 1 : 0
+                return subPackets[0].value > subPackets[1].value ? 1 : 0
             case 6:
                 guard subPackets.count == 2 else { return 0 }
-                return subPackets[0].getValue() < subPackets[1].getValue() ? 1 : 0
+                return subPackets[0].value < subPackets[1].value ? 1 : 0
             case 7:
                 guard subPackets.count == 2 else { return 0 }
-                return subPackets[0].getValue() == subPackets[1].getValue() ? 1 : 0
+                return subPackets[0].value == subPackets[1].value ? 1 : 0
             default:
                 return 0
             }
@@ -161,11 +161,11 @@ struct Day16 {
         
         // MARK: - Task 1
         
-        print("The version numbers all added result in: \(packet.getVersion())")
+        print("The version numbers all added result in: \(packet.version)")
         
         
         // MARK: - Task 2
         
-        print("The value of the outer most packet is: \(packet.getValue())")
+        print("The value of the outer most packet is: \(packet.value)")
     }
 }
