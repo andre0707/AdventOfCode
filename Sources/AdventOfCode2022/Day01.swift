@@ -10,7 +10,7 @@ struct Day1 {
         
         
         let calories = numbers.map { $0.reduce(0, +) }
-            .sorted { $0 > $1 }
+            .sorted(by: >)
         
         
         // MARK: - Task 1
@@ -24,6 +24,6 @@ struct Day1 {
         let sumOfTopThree = calories.prefix(3).reduce(0, +)
         
         print("--------------------------------------------------------------")
-        print("Puzzle 1:\nThe maximum is \(sumOfTopThree) calories")
+        print("Puzzle 2:\nThe sum of top 3 is \(sumOfTopThree) calories")
     }
 }
