@@ -59,7 +59,7 @@ final class AdventOfCode2021Tests: XCTestCase {
     }
     
     func testDay15() {
-//        Day15.run()
+        Day15.run()
     }
     
     func testDay16() {
@@ -71,36 +71,35 @@ final class AdventOfCode2021Tests: XCTestCase {
     }
     
     func testDay18() {
-//        Day18.run()
+        Day18.run()
     }
     
     func testDay19() {
-//        Day19.run()
+        Day19.run()
     }
     
-    // ###########################
     func testDay20() {
-//        Day20.run()
+        Day20.run()
     }
     
     func testDay21() {
-//        Day21.run()
+        Day21.run()
     }
     
     func testDay22() {
-//        Day22.run()
+        Day22.run()
     }
     
     func testDay23() {
-//        Day23.run()
+        Day23.run()
     }
     
     func testDay24() {
-//        Day24.run()
+        Day24.run()
     }
     
     func testDay25() {
-//        Day25.run()
+        Day25.run()
     }
     
     static var allTests = [
