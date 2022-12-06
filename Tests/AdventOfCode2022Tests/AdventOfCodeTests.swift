@@ -19,7 +19,7 @@ final class AdventOfCode2022Tests: XCTestCase {
     }
 
     func testDay5() {
-//        Day5.run()
+        Day5.run()
     }
     
     func testDay6() {
