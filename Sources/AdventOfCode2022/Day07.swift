@@ -21,15 +21,6 @@ struct Day7 {
         
         let parent: FilesystemEntry?
         
-        var nextSibling: FilesystemEntry? {
-            guard let parent else { return nil }
-            
-            guard let myIndexInParent = parent.children.firstIndex(where: { $0.name == name }),
-                  myIndexInParent + 1 < parent.children.count
-            else { return nil }
-            
-            return parent.children[myIndexInParent + 1]
-        }
         
         init(name: String, size: Int, parent: FilesystemEntry?) {
             self.isDirectory = false
@@ -92,7 +83,7 @@ struct Day7 {
                 
                 
             } else {
-                /// We have a line with content of adirectory
+                /// We have a line with content of a directory
                 
                 switch lineComponents[0] {
                 case "dir":
