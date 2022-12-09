@@ -28,7 +28,7 @@ struct Day8 {
                 scenicViewForestMap[y][x] = 1
                 var visibleDistance: Int? = 0
                 
-                /// Chck visibility from left
+                /// Check visibility from left
                 for dx in (0 ..< x).reversed() {
                     visibleDistance! += 1
                     if forestMap[y][dx] >= elementToCheck {
@@ -44,7 +44,7 @@ struct Day8 {
                 }
                 
                                 
-                /// Chck visibility from right
+                /// Check visibility from right
                 visibleDistance = 0
                 for element in forestMap[y][x + 1 ..< width] {
                     visibleDistance! += 1
@@ -61,7 +61,7 @@ struct Day8 {
                 }
                 
                 
-                /// Chck visibility from top
+                /// Check visibility from top
                 visibleDistance = 0
                 for dy in (0 ..< y).reversed() {
                     visibleDistance! += 1
@@ -78,7 +78,7 @@ struct Day8 {
                 }
                 
                 
-                /// Chck visibility from bottom
+                /// Check visibility from bottom
                 visibleDistance = 0
                 for dy in (y + 1 ..< height) {
                     visibleDistance! += 1
