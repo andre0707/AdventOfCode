@@ -130,7 +130,8 @@ struct Day13 {
             guard let element = $0 as? [[Int]] else { return false }
             return element == [[2]]
         })
-        let secondIndex = listOfAllLines.firstIndex(where: {guard let element = $0 as? [[Int]] else { return false }
+        let secondIndex = listOfAllLines.firstIndex(where: {
+            guard let element = $0 as? [[Int]] else { return false }
             return element == [[6]]
         })
         
