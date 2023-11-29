@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "AdventOfCode",
     platforms: [
-        .macOS(SupportedPlatform.MacOSVersion.v10_12),
+        .macOS(SupportedPlatform.MacOSVersion.v10_13),
         .iOS(SupportedPlatform.IOSVersion.v14)
     ],
     products: [
@@ -14,7 +14,7 @@ let package = Package(
         .library(
             name: "AdventOfCode2020",
             targets: ["AdventOfCode2020"]),
-        
+    
         .library(
             name: "AdventOfCode2021",
             targets: ["AdventOfCode2021"]),
@@ -22,6 +22,10 @@ let package = Package(
         .library(
             name: "AdventOfCode2022",
             targets: ["AdventOfCode2022"]),
+    
+        .library(
+            name: "AdventOfCode2023",
+            targets: ["AdventOfCode2023"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -37,10 +41,6 @@ let package = Package(
             resources: [
                 .copy("Resources")
             ]),
-        .testTarget(
-            name: "AdventOfCode2020Tests",
-            dependencies: ["AdventOfCode2020"]),
-        
         
         .target(
             name: "AdventOfCode2021",
@@ -49,10 +49,6 @@ let package = Package(
             resources: [
                 .copy("Resources")
             ]),
-        .testTarget(
-            name: "AdventOfCode2021Tests",
-            dependencies: ["AdventOfCode2021"]),
-        
         
         .target(
             name: "AdventOfCode2022",
@@ -61,8 +57,32 @@ let package = Package(
             resources: [
                 .copy("Resources")
             ]),
+        
+        .target(
+            name: "AdventOfCode2023",
+            dependencies: [],
+            exclude: ["Tasks"],
+            resources: [
+                .copy("Resources")
+            ]),
+        
+            .target(
+                name: "AdventOfCode2024",
+                dependencies: [],
+                exclude: ["Tasks"],
+                resources: [
+                    .copy("Resources")
+                ]),
+        
+        
         .testTarget(
-            name: "AdventOfCode2022Tests",
-            dependencies: ["AdventOfCode2022"]),
+            name: "AdventOfCodeTests",
+            dependencies: [
+                "AdventOfCode2020",
+                "AdventOfCode2021",
+                "AdventOfCode2022",
+                "AdventOfCode2023",
+                "AdventOfCode2024",
+            ]),
     ]
 )
