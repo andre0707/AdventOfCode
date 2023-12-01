@@ -3,7 +3,7 @@ import XCTest
 
 final class AdventOfCode2023Tests: XCTestCase {
     func testDay1() {
-//        Day1.run()
+        Day1.run()
     }
     
     func testDay2() {
