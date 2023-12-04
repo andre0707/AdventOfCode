@@ -41,6 +41,6 @@ struct Day4 {
         
         print("--------------------------------------------------------------")
         print("Puzzle 2:\n")
-        print("The Elf has ends up with \(numberOfScratchCards) scratch cards") // 8736438
+        print("The Elf ends up with \(numberOfScratchCards) scratch cards") // 8736438
     }
 }
