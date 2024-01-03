@@ -55,7 +55,7 @@ final class AdventOfCode2023Tests: XCTestCase {
     }
     
     func testDay14() {
-//        Day14.run()
+        Day14.run()
     }
     
     func testDay15() {
@@ -63,42 +63,42 @@ final class AdventOfCode2023Tests: XCTestCase {
     }
     
     func testDay16() {
-//        Day16.run()
+        Day16.run()
     }
     
     func testDay17() {
-//        Day17.run()
+        Day17.run()
     }
     
     func testDay18() {
-//        Day18.run()
+        Day18.run()
     }
     
     func testDay19() {
-//        Day19.run()
+        Day19.run()
     }
     
     func testDay20() {
-//        Day20.run()
+        Day20.run()
     }
     
     func testDay21() {
-//        Day21.run()
+        Day21.run()
     }
     
     func testDay22() {
-//        Day22.run()
+        Day22.run()
     }
     
     func testDay23() {
-//        Day23.run()
+        Day23.run()
     }
     
     func testDay24() {
-//        Day24.run()
+        Day24.run()
     }
     
     func testDay25() {
-//        Day25.run()
+        Day25.run()
     }
 }

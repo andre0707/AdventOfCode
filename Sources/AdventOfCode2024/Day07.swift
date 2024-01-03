@@ -3,7 +3,7 @@ import Foundation
 struct Day7 {
     static func run() {
         let input = try! String(contentsOfFile: Bundle.module.path(forResource: "Resources/input_DayTest", ofType: "txt")!)
-        let _ = input.components(separatedBy: .newlines).filter { !$0.isEmpty }
+        let _ = input.dropLast(1).components(separatedBy: .newlines)
         
         
         
