@@ -1,9 +1,9 @@
 import XCTest
-@testable import AdventOfCode2024
+@testable import AdventOfCode2025
 
-final class AdventOfCode2024Tests: XCTestCase {
+final class AdventOfCode2025Tests: XCTestCase {
     func testDay1() {
-        Day1.run()
+//        Day1.run()
     }
     
     func testDay2() {

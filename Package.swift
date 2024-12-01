@@ -14,18 +14,26 @@ let package = Package(
         .library(
             name: "AdventOfCode2020",
             targets: ["AdventOfCode2020"]),
-    
-        .library(
-            name: "AdventOfCode2021",
-            targets: ["AdventOfCode2021"]),
         
-        .library(
-            name: "AdventOfCode2022",
-            targets: ["AdventOfCode2022"]),
-    
-        .library(
-            name: "AdventOfCode2023",
-            targets: ["AdventOfCode2023"]),
+            .library(
+                name: "AdventOfCode2021",
+                targets: ["AdventOfCode2021"]),
+        
+            .library(
+                name: "AdventOfCode2022",
+                targets: ["AdventOfCode2022"]),
+        
+            .library(
+                name: "AdventOfCode2023",
+                targets: ["AdventOfCode2023"]),
+        
+            .library(
+                name: "AdventOfCode2024",
+                targets: ["AdventOfCode2024"]),
+        
+            .library(
+                name: "AdventOfCode2025",
+                targets: ["AdventOfCode2025"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -42,29 +50,29 @@ let package = Package(
                 .copy("Resources")
             ]),
         
-        .target(
-            name: "AdventOfCode2021",
-            dependencies: [],
-            exclude: ["Tasks"],
-            resources: [
-                .copy("Resources")
-            ]),
+            .target(
+                name: "AdventOfCode2021",
+                dependencies: [],
+                exclude: ["Tasks"],
+                resources: [
+                    .copy("Resources")
+                ]),
         
-        .target(
-            name: "AdventOfCode2022",
-            dependencies: [],
-            exclude: ["Tasks"],
-            resources: [
-                .copy("Resources")
-            ]),
+            .target(
+                name: "AdventOfCode2022",
+                dependencies: [],
+                exclude: ["Tasks"],
+                resources: [
+                    .copy("Resources")
+                ]),
         
-        .target(
-            name: "AdventOfCode2023",
-            dependencies: [],
-            exclude: ["Tasks"],
-            resources: [
-                .copy("Resources")
-            ]),
+            .target(
+                name: "AdventOfCode2023",
+                dependencies: [],
+                exclude: ["Tasks"],
+                resources: [
+                    .copy("Resources")
+                ]),
         
             .target(
                 name: "AdventOfCode2024",
@@ -74,15 +82,24 @@ let package = Package(
                     .copy("Resources")
                 ]),
         
+            .target(
+                name: "AdventOfCode2025",
+                dependencies: [],
+                exclude: ["Tasks"],
+                resources: [
+                    .copy("Resources")
+                ]),
         
-        .testTarget(
-            name: "AdventOfCodeTests",
-            dependencies: [
-                "AdventOfCode2020",
-                "AdventOfCode2021",
-                "AdventOfCode2022",
-                "AdventOfCode2023",
-                "AdventOfCode2024",
-            ]),
+        
+            .testTarget(
+                name: "AdventOfCodeTests",
+                dependencies: [
+                    "AdventOfCode2020",
+                    "AdventOfCode2021",
+                    "AdventOfCode2022",
+                    "AdventOfCode2023",
+                    "AdventOfCode2024",
+                    "AdventOfCode2025",
+                ]),
     ]
 )
