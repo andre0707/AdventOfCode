@@ -22,12 +22,13 @@ struct Day2 {
     static func run() {
         let input = try! String(contentsOfFile: Bundle.module.path(forResource: "Resources/input_Day02", ofType: "txt")!)
         let reports = input.dropLast(1).components(separatedBy: .newlines)
+            .map { $0.components(separatedBy: .whitespaces).map { Int($0)! } }
         
         
         // MARK: - Task 1
         
-        let safeCount = reports.reduce(into: 0, { (sum, report) in
-            sum += checkLevels(report.components(separatedBy: .whitespaces).map { Int($0)! }) ? 1 : 0
+        let safeCount = reports.reduce(into: 0, { (sum, levels) in
+            sum += checkLevels(levels) ? 1 : 0
         })
         
         print("--------------------------------------------------------------")
@@ -37,9 +38,7 @@ struct Day2 {
         
         // MARK: - Task 2
         
-        let safeCount2 = reports.reduce(into: 0, { (sum, report) in
-            let levels = report.components(separatedBy: .whitespaces).map { Int($0)! }
-            
+        let safeCount2 = reports.reduce(into: 0, { (sum, levels) in
             if checkLevels(levels) {
                 sum += 1
                 return
