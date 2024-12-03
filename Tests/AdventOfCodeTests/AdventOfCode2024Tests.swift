@@ -11,8 +11,9 @@ final class AdventOfCode2024Tests: XCTestCase {
         Day2.run()
     }
     
+    @available(macOS 13.0, *)
     func testDay3() {
-//        Day3.run()
+        Day3.run()
     }
 
     func testDay4() {
